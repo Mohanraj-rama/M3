@@ -245,10 +245,7 @@ int main() {
 ```
 
 ## Output:
-
  ![image](https://github.com/user-attachments/assets/18cc5672-baa4-4d89-9a8e-080097a1d425)
-
-
 
 ## Result:
 
