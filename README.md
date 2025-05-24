@@ -16,37 +16,26 @@ To write a program to prepare EMI calculator using function without return type 
 ## PROGRAM
 ```
 #include <stdio.h>
-#include <math.h> // For pow() function
-
-// Function to calculate and display EMI
-void calculateEMI(float principal, float annualRate, int tenureMonths) {
-    float monthlyRate, emi;
-    
-    // Calculate monthly interest rate
-    monthlyRate = annualRate / (12 * 100);
-    
-    // Calculate EMI
-    emi = (principal * monthlyRate * pow(1 + monthlyRate, tenureMonths)) / (pow(1 + monthlyRate, tenureMonths) - 1);
-    
-    printf("\nEMI = %.2f\n", emi);
+#include <math.h>
+void calculateEMI(float principal, float rate_of_interest, int months) {
+    float monthly_rate = rate_of_interest / (12 * 100);
+    float emi = (principal * monthly_rate * pow(1 + monthly_rate, months)) / (pow(1 + monthly_rate, months) - 1);
+    printf("The EMI for the loan is: %.2f\n", emi);
 }
 
 int main() {
-    float principal, annualRate;
-    int tenureMonths;
-    
-    // Input values
-    printf("Enter Principal amount: ");
+    float principal, rate_of_interest;
+    int months;
+    printf("Enter the principal amount: ");
     scanf("%f", &principal);
     
-    printf("Enter Annual Interest Rate (in %%): ");
-    scanf("%f", &annualRate);
+    printf("Enter the rate of interest (annual in percentage): ");
+    scanf("%f", &rate_of_interest);
     
-    printf("Enter Loan Tenure (in months): ");
-    scanf("%d", &tenureMonths);
+    printf("Enter the number of months: ");
+    scanf("%d", &months);
     
-    // Call EMI calculation function
-    calculateEMI(principal, annualRate, tenureMonths);
+    calculateEMI(principal, rate_of_interest, months);
     
     return 0;
 }
@@ -54,8 +43,9 @@ int main() {
 
 ## OUTPUT
 
+![image](https://github.com/user-attachments/assets/378689f3-1a9a-4d30-ac64-386bd6ec6e80)
 
-![image](https://github.com/user-attachments/assets/649cd2af-bcc2-4927-bd5f-5ec6c87a6f13)
+
 
 
 ## RESULT
@@ -66,9 +56,8 @@ Thus the program to prepare EMI calculator using function without return type wi
 
 
 # EX-12-FIBONACCI-SERIES
-
 ## AIM
-To write a C program to generate the Fibonacci series for the value 6.
+To write a C program to generate the Fibonacci series for the value 8.
 
 ## ALGORITHM
 1.	Start the program.
@@ -82,25 +71,30 @@ To write a C program to generate the Fibonacci series for the value 6.
 ## PROGRAM
 ```
 #include <stdio.h>
-
-int main() {
-    int n = 6; // Number of terms
-    int a = 0, b = 1, next, i;
-    
-    printf("Fibonacci Series for %d terms:\n", n);
-    
-    for(i = 1; i <= n; i++) {
-        printf("%d ", a);
-        next = a + b;
-        a = b;
-        b = next;
-    }
-    
+int main()
+{
+    int n,a=0,b=1;
+    scanf("%d",&n);
+    int i=1;
+    do
+    {
+        printf("%d ",a);
+        int c=a+b;
+        a=b;
+        b=c;
+        i++;
+    }while(i<=n);
     return 0;
 }
 ```
+
 ## OUTPUT
-![image](https://github.com/user-attachments/assets/3da7569a-60e1-45da-8728-5b21e8723223)
+
+
+![image](https://github.com/user-attachments/assets/b728c38c-a32c-4ab6-9de4-36c66f19f933)
+
+
+
 
 
 
@@ -124,31 +118,29 @@ To write a C program to read n elements as input and print the last element of t
 ## PROGRAM
 ```
 #include <stdio.h>
-
-int main() {
+int main()
+{
     int n;
-    
-    // Input the number of elements
-    printf("Enter the number of elements: ");
-    scanf("%d", &n);
-    
-    int arr[n]; // Declare an array of size n
-    
-    // Input n elements
-    printf("Enter %d elements:\n", n);
-    for(int i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
+    scanf("%d",&n);
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
     }
-    
-    // Print the last element
-    printf("The last element is: %d\n", arr[n - 1]);
-    
+    printf("%d",a[n-1]);
     return 0;
 }
 ```
+
 ## OUTPUT
 
-![image](https://github.com/user-attachments/assets/89c36d2d-0f5d-46f7-ac9e-1641d4a988dd)
+
+![image](https://github.com/user-attachments/assets/7492e5ec-1d72-46fb-b370-8469e4824c62)
+
+
+
+
+
 
 
 ## RESULT
@@ -172,46 +164,43 @@ To write a C Program to count total number of positive elements in an array.
 ## PROGRAM
 ```
 #include <stdio.h>
-
-int main() {
-    int n, count = 0;
-    
-    // Input the number of elements
-    printf("Enter the number of elements: ");
-    scanf("%d", &n);
-    
-    int arr[n]; // Declare an array of size n
-    
-    // Input n elements
-    printf("Enter %d elements:\n", n);
-    for(int i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
+int main()
+{
+    int n,c=0;
+    scanf("%d",&n);
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
     }
-    
-    // Count positive elements
-    for(int i = 0; i < n; i++) {
-        if(arr[i] > 0) {
-            count++;
+    for(int j=0;j<n;j++)
+    {
+        if(a[j]>0)
+        {
+            c++;
         }
     }
-    
-    // Print the result
-    printf("Total number of positive elements: %d\n", count);
-    
+    printf("count  of positive numbers  in array: %d",c);
     return 0;
 }
 ```
 
 ## OUTPUT
-![image](https://github.com/user-attachments/assets/7a9193e3-10fc-41bc-b48f-f27fcbd48efb)
 
 
 
+![image](https://github.com/user-attachments/assets/f895162b-98ec-4228-8956-34b24fcc2bf6)
 
 
 ## RESULT
 Thus the program to count total number of positive elements in an array has been executed successfully.
 
+
+
+
+
+ 
+ 
 
 
 # EX -15 - Replace All Even Elements With 'E' In One Dimensional Array
@@ -236,34 +225,28 @@ To write a C program to replace all even elements with 'E' in one dimensional ar
 
 int main() {
     int n;
-    
-    // Input the number of elements
-    printf("Enter the number of elements: ");
     scanf("%d", &n);
-    
-    // Declare the array
-    int arr[n];
-    
-    // Input n elements
-    printf("Enter %d elements:\n", n);
-    for(int i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
+    int a[n];
+
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
     }
-    
-    // Replace even elements with 'E'
-    for(int i = 0; i < n; i++) {
-        if(arr[i] % 2 == 0) {
+
+    for (int i = 0; i < n; i++) {
+        if (a[i] % 2 == 0) {
             printf("E ");
         } else {
-            printf("%d ", arr[i]);
+            printf("%d ", a[i]);
         }
     }
-    
+
     return 0;
 }
 ```
+
 ## Output:
- ![image](https://github.com/user-attachments/assets/5e0aec43-de9f-4c97-ac6d-b1b1ba510df9)
+
+ ![image](https://github.com/user-attachments/assets/18cc5672-baa4-4d89-9a8e-080097a1d425)
 
 
 
